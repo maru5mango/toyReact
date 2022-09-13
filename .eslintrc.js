@@ -16,6 +16,7 @@ module.exports = {
         ecmaVersion: 2018,
         project: ["./tsconfig.json"],
     },
+    ignorePatterns: ["*/*.js"],
     rules: {
         "prettier/prettier": [
             "error",
