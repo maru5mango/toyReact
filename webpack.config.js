@@ -17,9 +17,6 @@ module.exports = {
 
     entry: "./src/index.tsx",
     resolve: {
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
-    },
-    resolve: {
         alias: {
             "@static": path.join(__dirname, "static"),
             "@assets": path.join(__dirname, "assets"),
@@ -31,6 +28,7 @@ module.exports = {
             routers: path.join(__dirname, "src", "routers"),
             store: path.join(__dirname, "src", "store"),
         },
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
     },
     module: {
         rules: [
@@ -41,7 +39,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: "/node_modules",
-                include: resolve(__dirname, "src"),
+                include: path.resolve(__dirname, "src"),
                 use: {
                     loader: "babel-loader",
                     options: {
@@ -71,10 +69,7 @@ module.exports = {
 
     devServer: {
         historyApiFallback: true,
-        inline: true,
         port: 3000,
-        hot: true,
-        publicPath: "/",
     },
 
     output: {
